@@ -1,0 +1,81 @@
+npm install --save sequelize
+
+o sequelize serve para simplificar as query de código que você precisa 
+
+npm instal --save mysql2
+
+precisa para fazermos conexao com o banco de dados
+
+criar arquivo js (conexao.js)
+
+const Sequelize = require('sequelize')
+
+-----Comentário-----------------------
+/*vamos passar o parametros dentro dos parentes do banco de dados
+1 parametro é o banco de dados
+2 parametro é o usuario do banco
+3 parametro é a senha do banco dados
+4 parametro defineremos o host do banco{
+	host:"localhost",
+	dialect:'mysql'
+}*//
+
+inserindo os parametros :
+---------------------------------------------
+const sequelize = new Sequelize(sistemadecursos,root,1234,{
+	host:"localhost",
+	dialect:'mysql'
+
+})
+---------------------------------------------
+feito isso vamos testar a conexão com a função 
+//Then é uma callback que acontece quando um evento acontece
+
+//Catch pega um erro ao tentar se conectar e mostra a messagem de erro
+
+sequelize.authenticate().then(function(){
+	console.log("Conectado com Sucesso!")
+
+}).catch(function(erro){
+	console.log("Falha ao se conectar: "+erro)
+})
+
+-----------------Feito isso vamos criar Models---------------------------------------
+
+const Cursos = sequelize.define('cursos',{
+    titulo:{
+        type:Sequelize.STRING
+    },
+    descricao:{
+        type:Sequelize.TEXT
+    }
+})
+este comando executa o código
+//Cursos.sync({force:true})
+
+const Usuario = sequelize.define('usuarios',{
+    nome:{
+        type:Sequelize.STRING
+    },
+    cpf:{
+        type:Sequelize.STRING
+    },
+    email:{
+        type:Sequelize.STRING
+    },
+    senha:{
+        type:Sequelize.STRING(15)
+    }
+
+})
+//Usuario.sync({force:true})
+
+-------vamos fazer um insert com INSERT
+
+
+
+-----------DESENVOLVER-----------------------
+Instalando o handlebars
+npm install --save express-handlebars 
+Handlebars é um template engine 
+

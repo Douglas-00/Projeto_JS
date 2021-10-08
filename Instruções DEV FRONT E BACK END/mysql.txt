@@ -1,0 +1,83 @@
+--------MYSQL-------
+
+Conectar Mysql pelo cmd
+
+c:seu usuario> mysql -h localhost -u root -p 
+
+localhost indicando o servidor local e -u indicando seu usuario root (principal do mysql) e -p para inserir sua senha do mysql
+
+inserindo a senha, você se conectará ao MYSQL
+
+Comando Básicos:CRUD
+
+---Create----
+
+Create database Sistema;
+
+após criar o banco 
+
+você tem que utilizar ele então
+
+insira o comando :
+
+use Sistema;
+
+agora você pode inserir tabelas dentro do seu banco 
+
+create table cursos(
+	id in not null auto_increment,
+	titulo varchar(50) not null,
+	descricao varchar(50)not null
+);
+execute o codigo 
+após criar a tabela vamos inserir uns dados nela passando os parametros da tabela criada observe abaixo: OBS:o nome values são os valores que você quer inserir.
+
+insert into cursos(titulo,descricao) values("Reactjs","Um framework bem utilizado");
+execute o codigo 
+
+após  temos que ver os dados inserido na tabela correto ?
+
+então vamos utilizar o select:
+obs:* seleciona todos os tipos na tabela para consultar
+
+----Read----
+
+
+select * from cursos;
+
+Exibira o resultado assim 
+
++----+--------+----------------------------+
+| id | titulo | descricao                  |
++----+--------+----------------------------+
+|  1 | React  | Um framework bem utilizado  |
++----+--------+----------------------------+
+ 
+Se por acaso você tem milhoes de cursos na sua tabela e só queira mostrar um do tipo React 
+
+select * from cursos where titulo = "React";
+
+é um filtro bem utilizado.
+
+-------UPDATE-----------
+CUIDADO PARA NÃO ALTERAR A TABELA INTEIRA
+(UPDATE FROM CURSOS BLALALA;!! )
+
+ se quiser alterar algo dentro de sua tabela cursos por exemplo o titulo do curso
+
+UPDATE cursos sent titulo = "Nome_novo" where titulo = "React"
+
+no código está acontecendo a seguinte lógica :
+quero setar este titulo novo no lugar de react.
+
+-----Delete-----
+CUIDADO PARA NÃO DELETAR A TABELA INTEIRA
+(DELETE FROM CURSOS;!! NÃO FAÇA ISSO CASO NÃO TENHA CERTEZA MESMO. )
+
+Agora vamos deletar o curso react
+
+delete from cursos where nome = "React";
+
+estou filtrando para deletar somente o nome React
+
+
