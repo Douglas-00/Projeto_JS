@@ -1,5 +1,5 @@
 --------MYSQL-------
-
+req.body.nome,req.body.cpf,req.body.email,req.body.senha
 Conectar Mysql pelo cmd
 
 c:seu usuario> mysql -h localhost -u root -p 
